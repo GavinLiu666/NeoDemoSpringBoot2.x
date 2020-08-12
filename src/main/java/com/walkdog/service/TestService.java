@@ -24,6 +24,13 @@ public class TestService {
         this.supplyRelationshipRepository = supplyRelationshipRepository;
     }
 
+
+    public void addCompany(String name) {
+        CompanyGraph companyGraph = CompanyGraph.builder().name(name).build();
+
+        companyGraphRepository.save(companyGraph);
+    }
+
     /**
      * 同时保存节点和关系
      *

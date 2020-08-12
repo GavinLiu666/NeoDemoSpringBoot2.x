@@ -44,6 +44,13 @@ public class TestController {
         return "success";
     }
 
+    @PostMapping("/add-company")
+    public String test5(@RequestParam String name) {
+        testService.addCompany(name);
+        return "success";
+    }
+
+
     @DeleteMapping("/del-relation")
     public String test3(@RequestBody AddSupplyRequest request) {
         return String.valueOf(testService.delRelation(request));

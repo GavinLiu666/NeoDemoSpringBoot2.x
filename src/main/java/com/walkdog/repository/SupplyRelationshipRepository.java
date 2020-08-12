@@ -17,8 +17,7 @@ import java.util.List;
 @Repository
 public interface SupplyRelationshipRepository extends Neo4jRepository<SupplyRelationship, Long> {
 
-    @Query(value = "match (n1:Company{name:$supplyName})-[r:supply]->(n2:Company{name:$companyName}) return r",
-            countQuery = "match (n1:Company{name:$supplyName})-[r:supply]->(n2:Company{name:$companyName}) return count(r)")
+    @Query(value = "match (c1:Company) where c1.name=$supplyName match(c2:Company) where c2.name=$companyName match(c1)-[r]->(c2) return r")
     SupplyRelationship findBySupplyAndCompany(@Param("supplyName") String supply,
                                               @Param("companyName") String company);
 
