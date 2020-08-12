@@ -25,6 +25,9 @@ public class CompetitionService {
         this.companyGraphRepository = companyGraphRepository;
     }
 
+    public List<CompanyGraph> findCompetitorById(long companyId) {
+        return companyGraphRepository.findCompetitorById(companyId);
+    }
 
     @Transactional(rollbackFor = Exception.class)
     public String add(String companyName1, String companyName2) {

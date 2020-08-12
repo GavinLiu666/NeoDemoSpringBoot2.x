@@ -24,5 +24,14 @@ public interface CompanyGraphRepository extends Neo4jRepository<CompanyGraph, Lo
 
     CompanyGraph findOneByName(@Param("name") String name);
 
+    /**
+     * 通过id 查找到所有的竞争对手
+     *
+     * @param companyId companyId
+     * @return CompanyGraph list
+     */
+    @Query("match (c:Company)<-[:COMPETITION]-(n) where id(c) =$companyId return n")
+    List<CompanyGraph> findCompetitorById(@Param("companyId") long companyId);
+
 
 }
