@@ -4,6 +4,15 @@ spring:
       uri: bolt://192.168.99.100/:7687
       username: neo4j
       password: 123
+#    mongodb:
+#      #      host: demomongo.liangyihui.net
+#      #      port: 3071
+#      #      uri: mongodb://demomongo.liangyihui.net:3071/honeypot
+#      uri: mongodb://192.168.99.100:27017/honeypot
+#      username:
+#      password:
+#      database: honeypot
+#      gridFsDatabase: honeypot_fs
 
   jpa:
     show-sql: true
